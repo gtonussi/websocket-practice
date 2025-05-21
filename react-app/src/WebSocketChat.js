@@ -28,15 +28,15 @@ export default function WebSocketChat() {
     };
   }, []);
 
-  const flushInputValue = () => {
-    setInputValue("");
-  };
-
   const sendMessage = () => {
     if (inputValue !== "" && socketRef.current.readyState === WebSocket.OPEN) {
       socketRef.current.send(inputValue);
       flushInputValue();
     }
+  };
+
+  const flushInputValue = () => {
+    setInputValue("");
   };
 
   return (
